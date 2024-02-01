@@ -29,5 +29,5 @@ struct Prediction {
 
 struct Item {
     var variables = [Variable]()
-    var prediction: Int?
+    var prediction: Prediction
 }

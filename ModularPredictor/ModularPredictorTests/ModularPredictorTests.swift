@@ -8,6 +8,16 @@
 import XCTest
 @testable import ModularPredictor
 
+struct TestState: Equatable {
+    var variables: [Variable]
+    var prediction: Int?
+    
+    init(_ model: ) {
+        self.variables = variables
+        self.prediction = prediction
+    }
+}
+
 final class ModularPredictorTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
