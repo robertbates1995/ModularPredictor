@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A23FBB22B74400B00AC4416 /* StateTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 7A23FBB12B74400B00AC4416 /* StateTesting */; };
 		7ACBA3D22B6ADC16002A99A0 /* ModularPredictorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBA3D12B6ADC16002A99A0 /* ModularPredictorApp.swift */; };
 		7ACBA3D42B6ADC16002A99A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBA3D32B6ADC16002A99A0 /* ContentView.swift */; };
 		7ACBA3D62B6ADC17002A99A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ACBA3D52B6ADC17002A99A0 /* Assets.xcassets */; };
@@ -14,7 +15,7 @@
 		7ACBA3E32B6ADC17002A99A0 /* ModularPredictorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBA3E22B6ADC17002A99A0 /* ModularPredictorTests.swift */; };
 		7ACBA3ED2B6ADC17002A99A0 /* ModularPredictorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBA3EC2B6ADC17002A99A0 /* ModularPredictorUITests.swift */; };
 		7ACBA3EF2B6ADC17002A99A0 /* ModularPredictorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBA3EE2B6ADC17002A99A0 /* ModularPredictorUITestsLaunchTests.swift */; };
-		7ACBA3FC2B6ADC3D002A99A0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBA3FB2B6ADC3D002A99A0 /* Model.swift */; };
+		7ACBA3FC2B6ADC3D002A99A0 /* PredicitonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBA3FB2B6ADC3D002A99A0 /* PredicitonModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +46,7 @@
 		7ACBA3E82B6ADC17002A99A0 /* ModularPredictorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModularPredictorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ACBA3EC2B6ADC17002A99A0 /* ModularPredictorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModularPredictorUITests.swift; sourceTree = "<group>"; };
 		7ACBA3EE2B6ADC17002A99A0 /* ModularPredictorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModularPredictorUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		7ACBA3FB2B6ADC3D002A99A0 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		7ACBA3FB2B6ADC3D002A99A0 /* PredicitonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredicitonModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A23FBB22B74400B00AC4416 /* StateTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +100,7 @@
 			children = (
 				7ACBA3D12B6ADC16002A99A0 /* ModularPredictorApp.swift */,
 				7ACBA3D32B6ADC16002A99A0 /* ContentView.swift */,
-				7ACBA3FB2B6ADC3D002A99A0 /* Model.swift */,
+				7ACBA3FB2B6ADC3D002A99A0 /* PredicitonModel.swift */,
 				7ACBA3D52B6ADC17002A99A0 /* Assets.xcassets */,
 				7ACBA3D72B6ADC17002A99A0 /* Preview Content */,
 			);
@@ -164,6 +166,9 @@
 				7ACBA3E02B6ADC17002A99A0 /* PBXTargetDependency */,
 			);
 			name = ModularPredictorTests;
+			packageProductDependencies = (
+				7A23FBB12B74400B00AC4416 /* StateTesting */,
+			);
 			productName = ModularPredictorTests;
 			productReference = 7ACBA3DE2B6ADC17002A99A0 /* ModularPredictorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -218,6 +223,9 @@
 				Base,
 			);
 			mainGroup = 7ACBA3C52B6ADC16002A99A0;
+			packageReferences = (
+				7A23FBB02B74400B00AC4416 /* XCRemoteSwiftPackageReference "StateTesting" */,
+			);
 			productRefGroup = 7ACBA3CF2B6ADC16002A99A0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,7 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ACBA3FC2B6ADC3D002A99A0 /* Model.swift in Sources */,
+				7ACBA3FC2B6ADC3D002A99A0 /* PredicitonModel.swift in Sources */,
 				7ACBA3D42B6ADC16002A99A0 /* ContentView.swift in Sources */,
 				7ACBA3D22B6ADC16002A99A0 /* ModularPredictorApp.swift in Sources */,
 			);
@@ -592,6 +600,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7A23FBB02B74400B00AC4416 /* XCRemoteSwiftPackageReference "StateTesting" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/robertbates1995/StateTesting";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7A23FBB12B74400B00AC4416 /* StateTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7A23FBB02B74400B00AC4416 /* XCRemoteSwiftPackageReference "StateTesting" */;
+			productName = StateTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7ACBA3C62B6ADC16002A99A0 /* Project object */;
 }

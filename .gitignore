@@ -88,3 +88,6 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+ModularPredictor/ModularPredictor.xcodeproj/project.pbxproj
+ModularPredictor/ModularPredictor.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+ModularPredictor/ModularPredictor.xcodeproj/project.pbxproj

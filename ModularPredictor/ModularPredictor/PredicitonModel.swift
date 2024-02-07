@@ -7,27 +7,27 @@
 
 import Foundation
 
-struct Variable {
+struct Variable: Equatable {
     var title: String
     var value: InputValue
     
-    enum InputValue {
+    enum InputValue: Equatable {
         case boolean(Bool)
         case double(Double)
         case picker([String])
     }
 }
 
-struct Prediction {
+struct Prediction: Equatable {
     var value: OutputValue
     
-    enum OutputValue {
+    enum OutputValue: Equatable {
         case boolean(Bool)
         case double(Double)
     }
 }
 
-struct Item {
+struct PredictionModel {
     var variables = [Variable]()
-    var prediction: Prediction
+    var prediction: Prediction?
 }
