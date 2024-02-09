@@ -12,22 +12,31 @@ struct Variable: Equatable {
     var value: InputValue
     
     enum InputValue: Equatable {
-        case boolean(Bool)
-        case double(Double)
+        case trueFalse(Bool)
+        case number(Double)
         case picker([String])
     }
 }
 
-struct Prediction: Equatable {
-    var value: OutputValue
-    
-    enum OutputValue: Equatable {
-        case boolean(Bool)
-        case double(Double)
-    }
+enum Prediction: Equatable {
+    case trueFalse(Bool)
+    case number(Double)
 }
 
 struct PredictionModel {
     var variables = [Variable]()
     var prediction: Prediction?
+    
+    mutating func updatePrediction() {
+        prediction = variables.reduce(nil) {
+            switch $1.value {
+            case .trueFalse(let value):
+                return .trueFalse(value)
+            case .number(let value):
+                return .number(value)
+            case .picker(let value):
+                return $0
+            }
+        }
+    }
 }

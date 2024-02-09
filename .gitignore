@@ -91,3 +91,6 @@ iOSInjectionProject/
 ModularPredictor/ModularPredictor.xcodeproj/project.pbxproj
 ModularPredictor/ModularPredictor.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
 ModularPredictor/ModularPredictor.xcodeproj/project.pbxproj
+.DS_Store
+ModularPredictor/ModularPredictor.xcodeproj/project.pbxproj
+*.pbxproj
