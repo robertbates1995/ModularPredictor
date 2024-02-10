@@ -9,34 +9,21 @@ import Foundation
 
 struct Variable: Equatable {
     var title: String
-    var value: InputValue
-    
-    enum InputValue: Equatable {
-        case trueFalse(Bool)
-        case number(Double)
-        case picker([String])
-    }
-}
-
-enum Prediction: Equatable {
-    case trueFalse(Bool)
-    case number(Double)
+    var value: Bool
 }
 
 struct PredictionModel {
     var variables = [Variable]()
-    var prediction: Prediction?
+    var prediction: Bool
     
-    mutating func updatePrediction() {
-        prediction = variables.reduce(nil) {
-            switch $1.value {
-            case .trueFalse(let value):
-                return .trueFalse(value)
-            case .number(let value):
-                return .number(value)
-            case .picker(let value):
-                return $0
-            }
+    mutating func updatePrediction() -> Bool {
+        var numerator = 0.0
+        var denominator = 0.0
+        for i in variables {
+            if i.value == true { numerator += 1 }
+            denominator += 1
         }
+        let result = numerator / denominator
+        return result > 0.5
     }
 }

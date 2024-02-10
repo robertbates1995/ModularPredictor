@@ -12,7 +12,7 @@ import XCTest
 struct TestState: Equatable {
     
     var variables: [Variable]
-    var prediction: Prediction?
+    var prediction: Bool
     
     init(_ model: PredictionModel) {
         self.variables = model.variables
