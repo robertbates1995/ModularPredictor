@@ -9,21 +9,27 @@ import Foundation
 
 struct Variable: Equatable {
     var title: String
-    var value: Bool
+    var value: Double
+}
+
+struct Day: Equatable {
+    var variables = [Variable]()
+    var result: Double
 }
 
 struct PredictionModel {
-    var variables = [Variable]()
-    var prediction: Bool
-    
-    mutating func updatePrediction() -> Bool {
-        var numerator = 0.0
-        var denominator = 0.0
-        for i in variables {
-            if i.value == true { numerator += 1 }
-            denominator += 1
+    var days = [Day]() {
+        didSet {
+            prediction = updatePrediction()
         }
-        let result = numerator / denominator
-        return result > 0.5
+    }
+    var prediction: Double? = nil
+    
+    func updatePrediction() -> Double? {
+        if days.isEmpty {
+            return nil
+        }
+        let numerator = days.reduce(0.0) { $0 + $1.result }
+        return numerator / Double(days.count)
     }
 }

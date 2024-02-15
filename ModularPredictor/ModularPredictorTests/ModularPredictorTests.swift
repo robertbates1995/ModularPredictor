@@ -11,11 +11,11 @@ import XCTest
 
 struct TestState: Equatable {
     
-    var variables: [Variable]
-    var prediction: Bool
+    var days: [Day]
+    var prediction: Double?
     
     init(_ model: PredictionModel) {
-        self.variables = model.variables
+        self.days = model.days
         self.prediction = model.prediction
     }
 }
@@ -23,49 +23,34 @@ struct TestState: Equatable {
 final class ModularPredictorTests: XCTestCase {
     var sut = PredictionModel()
     lazy var given = StateTester(given: {TestState(self.sut)})
+    var day = Day(variables: [Variable(title: "test", value: 1.0)], result: 1.0)
     
-    func testEmptyPrediction() throws {
+    func testEmptyPrediction() {
         XCTAssertNil(sut.prediction)
-        XCTAssertEqual(sut.variables, [])
+        XCTAssertEqual(sut.days, [])
     }
     
-    func testAddBoolInput() throws {
-        let newVar = Variable(title: "test title", value: .trueFalse(true))
-        given.when({sut.variables.append(newVar)}) {
-            $0.change(\.variables, [newVar])
+    func testOneDay() {
+        given.when({sut.days.append(day)}) {
+            $0.change(\.prediction, 1.0)
+            $0.change(\.days, [day])
         }
     }
     
-    func testAddDoubleInput() throws {
-        let newVar = Variable(title: "test title", value: .number(1.0))
-        given.when({sut.variables.append(newVar)}) {
-            $0.change(\.variables, [newVar])
+    func testTwoDays() {
+        let dayTwo = Day(variables: [Variable(title: "two", value: 0.0)], result: 0.0)
+        sut.days.append(day)
+        given.when({sut.days.append(dayTwo)}) {
+            $0.change(\.prediction, 0.5)
+            $0.change(\.days, [day, dayTwo])
         }
     }
     
-    func testAddPickerInput() throws {
-        let newVar = Variable(title: "test title", value: .picker(["test1", "test2"]))
-        given.when({sut.variables.append(newVar)}) {
-            $0.change(\.variables, [newVar])
-        }
-    }
-    
-    func testTrueFalseUpdated() throws {
-        sut.variables.append(Variable(title: "test title", value: .trueFalse(true)))
-        given.when({sut.updatePrediction()}) {
-            $0.change(\.prediction, .trueFalse(true))
-        }
-        
-        sut.variables = [Variable(title: "test title", value: .trueFalse(false))]
-        given.when({sut.updatePrediction()}) {
-            $0.change(\.prediction, .trueFalse(false))
-        }
-    }
-    
-    func testNumberUpdated() throws {
-        sut.variables.append(Variable(title: "test title", value: .number(1.0)))
-        given.when({sut.updatePrediction()}) {
-            $0.change(\.prediction, .number(1.0))
+    func testMultipleVariables() {
+        day.variables.append(Variable(title: "two", value: 0.0))
+        given.when({sut.days.append(day)}) {
+            $0.change(\.prediction, 0.5)
+            $0.change(\.days, [day])
         }
     }
 }
